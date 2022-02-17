@@ -48,11 +48,13 @@ input[type='checkbox'] {
     padding: 12px 10px;
     height: 50px;
     width: 100%;
+    border-radius: 10px;
 }
 
 .result-container #result {
     word-wrap: break-word;
     max-width: calc(100% - 40px);
+    color: #333;
 }
 
 .result-container .btn {
@@ -71,10 +73,11 @@ input[type='checkbox'] {
     font-size: 16px;
     padding: 8px 12px;
     background-color: #3b3b98;
+    border-radius: 5px;
 }
 
 .btn-large {
-    display: flex;
+    display: block;
     width: 100%;
 }
 

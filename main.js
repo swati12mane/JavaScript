@@ -10,10 +10,24 @@ const clipboardEl = document.getElementById('clipboard');
 
 const randomFunc = {
     lower: getRandomLower,
-    upper: getRandomupper,
-    number: getRandomnumber,
-    Symbol: getRandomsymbol
+    upper: getRandomUpper,
+    number: getRandomNumber,
+    Symbol: getRandomSymbol
 };
+
+// Clipboard.addEventListener('click', () =>{
+//     const textarea = document.createElement('textarea');
+//     const password = resultEl.innerText;
+
+//     if(!password){ return;}
+
+//     textarea.value = password;
+//     document.body.appendChild(textarea);
+//     textarea.select();
+//     document.execCommand('copy');
+//     textarea.remove();
+//     alert('Password copied to clipboard');
+// });
 
 // Generate event listen
 generateEl.addEventListener('click', () => {
@@ -32,34 +46,16 @@ generateEl.addEventListener('click', () => {
     );
 });
 
-// Copy password to clipboard
-/*
-clipboardEl.addEventListener('click', () => {
-    const textarea = document.createElement('textarea');
-    const password = resultEl.innerText;
 
-    if (!password) {
-        return;
-    }
-
-    textarea.value = password;
-    document.body.appendChild(textarea);
-    textarea.select();
-    //document.execCommand('copy');
-    navigator.clipboard.writeText(password);
-    textarea.remove();
-    alert('Password copied to clipboard!');
-});
-*/
 
 // Generate password function
 function generatePassword(lower,upper,number,Symbol,length) {
 
-    let generatedPassword ='';
+    let generatedPassword = "";
 
-    const typesCount = lower + upper + number + symbol;
+    const typesCount = lower + upper + number + Symbol;
 
-    const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter
+    const typesArr = [{ lower }, { upper }, { number }, { Symbol }].filter
     (
         item => Object.values(item)[0]
     );
@@ -67,7 +63,7 @@ function generatePassword(lower,upper,number,Symbol,length) {
     // console.log('typesArr:', typesArr);
 
     if(typesCount === 0) {
-        return '';
+        return 'Select atleast 1 option';
     }
 
     for(let i=0;i<length; i += typesCount) {
@@ -78,10 +74,10 @@ function generatePassword(lower,upper,number,Symbol,length) {
             
         });
     }
+       console.log(generatedPassword);
+    // const finalPassword = generatedPassword.slice(0, length);
 
-    const finalPassword = generatedPassword.slice(0, length);
-
-    return finalPassword;
+    // return finalPassword;
 }
 // Generator functions -https://net-comber.com/charset.html
 
@@ -89,15 +85,15 @@ function getRandomLower() {
     return String.fromCharCode(Math.floor(Math.random()*26) + 97);
 }
 
-function getRandomupper() {
+function getRandomUpper() {
     return String.fromCharCode(Math.floor(Math.random()*26) + 65);
 }
 
-function getRandomnumber() {
-    return String.fromCharCode(Math.floor(Math.random()*26) + 48);
+function getRandomNumber() {
+    return String.fromCharCode(Math.floor(Math.random()*10) + 48);
 }
 
-function getRandomsymbol() {
-    const symbols = '!@#$%^&*(){}[]=<>/,.';
+function getRandomSymbol() {
+    const symbols = '!@#$%^&*(){}[]+<>/,.';
     return symbols[Math.floor(Math.random()* symbols.length)];
 }

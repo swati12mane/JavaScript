@@ -3,16 +3,18 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="style.css" />
         <title>Password Generator</title>
+        <script src="https://kit.fontawesome.com/46249a0d76.js"
+        crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="container">
             <h2>Password Generator</h2>
             <div class="result-container">
                 <!-- <span id="result"></span> -->
-                <input type="text" id="result">
+                <input type="text"  placeholder="create password" id="result" >
                 <button class="btn" id="clipboard">
                     <i class="far fa-clipboard"></i>
                 </button>
@@ -39,7 +41,7 @@
                     <input type="checkbox" id="symbols" checked />
                 </div>
             </div>
-            <button class="btn btn-large" id="generate">
+            <button class="btn btn-large" id="generate" >
                 Generate password
             </button>
         </div>
